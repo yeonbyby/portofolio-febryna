@@ -1,10 +1,18 @@
 @extends('master')
 
 @section('konten_utama')
-<div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1 class="fw-bold">Karya Saya</h1>
-        <a href="#" class="btn btn-light rounded-pill px-4">Tambah Data</a>
+<h2 class="fw-bold text-white">Daftar Portofolio Saya</h2>
+<a href="/projects/create" class="btn btn-primary">Tambah Data</a>
+
+<div class="row">
+    @foreach($data_karya as $item)
+    <div class="col-md-4">
+        <div class="p-4 border border-secondary rounded-4 bg-dark h-100">
+            <h4>{{ $item->judul }}</h4>
+            <p>{{ $item->deskripsi }}</p>
+            <a href="/projects/{{ $item->id }}/edit" class="btn btn-sm btn-warning">Edit</a>
+        </div>
     </div>
+    @endforeach
 </div>
 @endsection

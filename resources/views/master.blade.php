@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark mt-3">
         <div class="container justify-content-center">
             <div class="navbar-nav d-flex flex-row gap-3">
-                <a class="nav-link text-white border-bottom" href="/">Home</a>
+                <a class="nav-link text-secondary" href="/">Home</a>
                 <a class="nav-link text-secondary" href="/about">About</a>
                 <a class="nav-link text-secondary" href="/skills">Skills</a>
                 <a class="nav-link text-secondary" href="/projects">Projects</a>
