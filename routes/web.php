@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KaryaController; // Pastikan ini ada di paling atas!
+use App\Http\Controllers\KaryaController;
 
 Route::get('/', function () {
     return view('index');
