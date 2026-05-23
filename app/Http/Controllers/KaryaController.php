@@ -21,14 +21,21 @@ class KaryaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|min:3',
-            'deskripsi' => 'required'
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'nullable'
         ]);
 
-        Karya::create([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi
-        ]);
+        $input = $request->all();
+
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $nama_foto = date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move(public_path('img_karya'), $nama_foto);
+            $input['foto'] = $nama_foto;
+        }
+
+        Karya::create($input);
 
         return redirect('/projects')->with('sukses', 'Data berhasil ditambah!');
     }

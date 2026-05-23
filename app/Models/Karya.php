@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Karya extends Model
 {
-    protected $fillable = ['judul', 'deskripsi'];
+    protected $fillable = ['judul', 'deskripsi', 'foto'];
 }

@@ -18,6 +18,13 @@
         <div class="col-md-4">
             <div class="p-4 border border-secondary rounded-4 bg-dark h-100">
                 <div>
+                    @if($item->foto)
+                    <img src="{{ asset('img_karya/' . $item->foto) }}" class="img-fluid rounded-3 mb-3 w-100" style="height: 200px; object-fit: cover;" alt="Foto Karya">
+                    @else
+                    <div class="bg-secondary rounded-3 mb-3 d-flex align-items-center justify-content-center text-white" style="height: 200px;">
+                        <span>Tidak ada foto</span>
+                    </div>
+                    @endif
                     <h4 class="text-white fw-bold mb-2">{{ $item->judul }}</h4>
                     <p class="text-secondary mb-4">{{ $item->deskripsi }}</p>
                 </div>
