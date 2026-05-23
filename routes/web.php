@@ -18,3 +18,6 @@ Route::get('/skills', function () {
 Route::get('/projects', [KaryaController::class, 'index']);
 Route::get('/projects/create', [KaryaController::class, 'create']);
 Route::post('/projects/store', [KaryaController::class, 'store']);
+Route::get('/projects/{id}/edit', [KaryaController::class, 'edit']);
+Route::put('/projects/{id}', [KaryaController::class, 'update']);
+Route::delete('/projects/{id}', [KaryaController::class, 'destroy']);

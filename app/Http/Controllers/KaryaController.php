@@ -32,4 +32,35 @@ class KaryaController extends Controller
 
         return redirect('/projects')->with('sukses', 'Data berhasil ditambah!');
     }
+
+    public function edit($id)
+    {
+        $karya = Karya::find($id);
+        return view('edit', compact('karya'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required|min:3',
+            'deskripsi' => 'required'
+        ]);
+
+        $karya = Karya::find($id);
+
+        $karya->update([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi
+        ]);
+
+        return redirect('/projects')->with('sukses', 'Data berhasil diubah!');
+    }
+
+    public function destroy($id)
+    {
+        $karya = Karya::find($id);
+        $karya->delete();
+
+        return redirect('/projects')->with('sukses', 'Data berhasil dihapus!');
+    }
 }
